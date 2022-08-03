@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"philosophy.example.one","c":"DocumentationExamples","l":"DocumentationExamples()","url":"%3Cinit%3E()"},{"p":"philosophy.example.one","c":"DocumentationExamples","l":"main(String[])","url":"main(java.lang.String[])"}]
