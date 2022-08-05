@@ -128,6 +128,31 @@ public class Precedence {
         ss += "(summed) = ";
         System.out.println(ss + (xx + уy + zz));
         System.out.println("" + xx);
+
+
+        int f = 200;
+        long lng = (long)f;
+        lng = f;
+        long lng2 = (long)200;
+        lng2 = 200;
+        f = (int)lng2;
+
+
+        double above = 0.7, below = 0.4;
+        float fabove = 0.7f, fbelow = 0.4f;
+        System.out.println("(int)above: " + (int)above);
+        System.out.println("(int)below: " + (int)below);
+        System.out.println("(int)fabove: " + (int)fabove);
+        System.out.println("(int)fbelow: " + (int)fbelow);
+
+
+        double above1 = 0.7, below1 = 0.4;
+        float fabove1 = 0.7f, fbelow1 = 0.4f;
+        System.out.println("Math.round(above1): " + Math.round(above1));
+        System.out.println("Math.round(below1): " + Math.round(below1));
+        System.out.println("Math.round(fabove1): " + Math.round(fabove1));
+        System.out.println("Math.round(fbelow1): " +Math.round(fbelow1));
+
     }
 
     static boolean test1(int val) {

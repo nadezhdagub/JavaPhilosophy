@@ -221,12 +221,30 @@ public class Exercises {
         }
 
 
-        /** 14)
-         *
+        /** 14) Write a method that receives two String arguments, performs
+         * all logical comparison operations with them, and outputs the results.
+         * For the == and I = operations, also perform the equals() check.
+         * Call your method from main() for several different String objects.
          */
+        String s = "one";
+        String tt = "two";
+        Exercises.Eq(s, tt);
     }
 
     static void foo(Fl ff) {
         ff.fl = 2.5472f;
+    }
+
+    static void Eq(String s, String t) {
+        f(s == t);
+        f(s != t);
+        f(s.equals(t));
+    }
+    static void f(boolean b) {
+        if (b == true) {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
     }
 }
