@@ -5,6 +5,7 @@ import java.util.Random;
 public class Exercises {
     static Random r = new Random();
     public static void main(String[] args) {
+        int max = 100;
         /** 1) Write a program that outputs numbers from 1 to 100.
          */
         for (int i = 1; i < 101; i++) {
@@ -23,9 +24,45 @@ public class Exercises {
          * while loop. The program should run until its execution
          * is interrupted from the keyboard (usually by pressing Ctrl+C).
          */
-        while (true) {
+       /* while (true) {
             condition();
+        }*/
+
+        /** 4) Write a program using two nested for loops and
+         * the remainder operator (%) to find and output prime numbers
+         * (that is, integers that are not completely divisible
+         * by any other number except themselves and 1).
+         */
+        if (args.length != 0) {
+            max = Integer.parseInt(args[0]);
         }
+        for(int i = 1; i < max; i++) {
+            boolean prime = true;
+            for(int j = 2; j < i; j++)
+                if(i % j == 0)
+                    prime = false;
+            if(prime)
+                System.out.print(i + " ");
+        }
+
+
+        /** 5) Repeat exercise 1 from the previous chapter, using the ternary operator
+         * and a bitwise check to output zeros and ones (instead of calling the Integer method.
+         * toBinaryString()).
+         */
+        int i1 = 0xaaaaaaaa;
+        int i2 = 0x55555555;
+        System.out.println("i1 = "); toBinaryString(i1);
+        System.out.println("i2 = "); toBinaryString(i2);
+        System.out.println("~i1 = "); toBinaryString(~i1);
+        System.out.println("~i2 = "); toBinaryString(~i2);
+        System.out.println("i1 & i1 = "); toBinaryString(i1 & i1);
+        System.out.println("i1 | i1 = "); toBinaryString(i1 | i1);
+        System.out.println("i1 ^ i1 = "); toBinaryString(i1 ^ i1);
+        System.out.println("i1 & i2 = "); toBinaryString(i1 & i2);
+        System.out.println("i1 | i2 = "); toBinaryString(i1 | i2);
+        System.out.println("i1 ^ i2 = "); toBinaryString(i1 ^ i2);
+
     }
 
     static void condition() {
@@ -39,5 +76,18 @@ public class Exercises {
         } else {
             System.out.println("a == b");
         }
+    }
+
+    private static void toBinaryString(int i) {
+        char[] buffer = new char[32];
+        int bufferPosition = 32;
+        do {
+            buffer[--bufferPosition] =
+                    ((i & 0x01) != 0) ? '1' : '0';
+            i >>>= 1;
+        } while (i != 0);
+        for(int j = bufferPosition; j < 32; j++)
+            System.out.println(buffer[j]);
+        System.out.println();
     }
 }
