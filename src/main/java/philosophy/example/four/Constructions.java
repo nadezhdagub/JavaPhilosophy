@@ -1,5 +1,7 @@
 package philosophy.example.four;
 
+import java.util.Random;
+
 public class Constructions {
     static int result = 0;
     static void test(int testval, int target) {
@@ -35,5 +37,19 @@ public class Constructions {
                 System.out.println("value: " + (int)c + "zn: " + c);
             }
         }
+
+        Random r = new Random(47);
+        float[] f = new float[10];
+        for (int i = 0; i < 10; i++) {
+            f[i] = r.nextFloat();
+        }
+        for (float xx : f) {
+            System.out.println(xx);
+        }
+
+        for(char c : "An African Swallow".toCharArray()) {
+            System.out.println(c + " ");
+        }
+
     }
 }
