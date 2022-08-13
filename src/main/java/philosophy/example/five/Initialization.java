@@ -1,5 +1,28 @@
 package philosophy.example.five;
 
+class Person {
+    public void eat(Apple apple) {
+        Apple peeled = apple.getPeeled();
+        System.out.println("Yummy");
+    }
+}
+
+class Peeler {
+    static Apple peel(Apple apple) {
+        return apple;
+    }
+}
+
+class Apple {
+    Apple getPeeled() {
+        return Peeler.peel(this);
+    }
+}
+
+class Banana {
+    void peel(int i) { /* . . . */ }
+}
+
 class Tree {
     int height;
 
@@ -33,6 +56,47 @@ class Rock {
 }
 
 public class Initialization {
+    int i = 0;
+
+    Initialization increment() {
+        i++;
+        return this;
+    }
+
+    void print() {
+        System.out.println("i = " + i);
+    }
+
+    int petalCount = 0;
+    String s = "initial value";
+
+    Initialization(int petals) {
+        petalCount = petals;
+        System.out.println("KoHCTpyKTOp с параметром int, petalCount= " + petalCount);
+    }
+
+    Initialization(String ss) {
+        System.out.println("KoHCTpyKTop с параметром String, s = " + ss);
+        s = ss;
+    }
+
+    Initialization(String s, int petals) {
+        this(petals);
+//! this(s); // Вызов другого конструктора запрещен!
+        this.s = s; // Другое использование "this"
+        System.out.println("ApryMeHTbi String и int");
+    }
+
+    Initialization() {
+        this("hi", 47);
+        System.out.println("KOHCTpyKTop по умолчанию (без аргументов)");
+    }
+
+    void printPetalCount() {
+//! this(ll); // Разрешается только в конструкторах!
+        System.out.println("petalCount = " + petalCount + " s = " + s);
+    }
+
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             new Rock();
@@ -59,6 +123,22 @@ public class Initialization {
         p.testLong();
         p.testFloat();
         p.testDouble();
+
+        Banana a = new Banana(),
+                b = new Banana();
+        a.peel(1);
+        b.peel(2);
+        // =
+        //Banana.peel(a,1);
+        //Banana.peel(b,2);
+
+        Initialization x = new Initialization();
+        x.increment().increment().increment().print();
+
+        new Person().eat(new Apple());
+
+        Initialization xx = new Initialization();
+        xx.printPetalCount();
 
     }
 
