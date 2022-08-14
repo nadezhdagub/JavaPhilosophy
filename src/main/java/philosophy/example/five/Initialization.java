@@ -1,5 +1,25 @@
 package philosophy.example.five;
 
+class Book {
+    boolean checkedOut = false;
+
+    Book(boolean checkOut) {
+        checkedOut = checkOut;
+    }
+
+    void checkIn() {
+        checkedOut = false;
+    }
+
+    public void finalize() {
+        if (checkedOut)
+            System.out.println("Ошибка: checkedOut");
+// О б ы ч н о э т о делается так:
+// Super.finalize(); // Вызов версии базового класса
+    }
+}
+
+
 class Person {
     public void eat(Apple apple) {
         Apple peeled = apple.getPeeled();
@@ -140,6 +160,13 @@ public class Initialization {
         Initialization xx = new Initialization();
         xx.printPetalCount();
 
+        Book novel = new Book(true);
+        // Правильная очистка:
+        novel.checkIn();
+        // Теряем ссылку, забыли про очистку:
+        new Book(true);
+        // Принудительная уборка мусора и финализация:
+        System.gc();
     }
 
     static void f(String s, int i) {

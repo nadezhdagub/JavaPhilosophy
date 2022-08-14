@@ -1,5 +1,30 @@
 package philosophy.example.five;
 
+class Tank {
+    boolean full;
+    Tank() {
+        full = true;
+        System.out.println(full + " created");
+    }
+    public void empty() {
+        full = false;
+        System.out.println(full + "deleted");
+    }
+    protected void finalize() {
+        if(full) {
+            System.out.println("Error, must be empty");
+        } else {
+            System.out.println("Tank cleaned up OK");
+        }
+    }
+}
+
+class Finalize {
+    protected void finalize() {
+        System.out.println("finalize() called");
+    }
+}
+
 class Something {
     int m = 123;
 }
@@ -123,8 +148,31 @@ public class Exercises {
         new Exercises(47);
 
 
-        /** 10) 
-         *
+        /** 10) Erstellen Sie eine Klasse mit der finalize() -Methode,
+         * die eine Nachricht ausgibt. In der Methode main() Erstellen
+         * Sie ein Objekt Ihrer Klasse. Erklären Sie das Verhalten des Programms
          */
+        new Finalize();
+
+
+        /** 11) Modify the previous exercise so that the finalize() method
+         * is executed.
+         */
+        new Finalize();
+        System.gc();
+        System.runFinalization();
+
+
+        /** 12) Include it in a class named Tank, which can be filled and emptied.
+         * The "ready" condition requires it to be empty before cleaning. Write a method
+         * finalize(), which checks this condition. In the main() method, test possible
+         * use cases of your class.
+         */
+        new Tank().empty();
+        new Tank();
+        System.gc();
+        new Tank().finalize();
+        new Tank().empty();
+        new Tank().finalize();
     }
 }
