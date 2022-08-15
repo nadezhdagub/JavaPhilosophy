@@ -1,5 +1,90 @@
 package philosophy.example.five;
 
+import java.util.Arrays;
+import java.util.Random;
+
+class Other {
+    public static void main(String[] args) {
+        for(String s : args)
+            System.out.print(s + " ");
+    }
+}
+
+class Mug {
+    Mug(int marker) {
+        System.out.println("Mug(" + marker + ")");
+    }
+
+    void f(int marker) {
+        System.out.println("f(" + marker + ")");
+    }
+}
+
+class Cup {
+    Cup(int marker) {
+        System.out.println("Cup(" + marker + ")");
+    }
+
+    void f(int marker) {
+        System.out.println("f(" + marker + ")");
+    }
+}
+
+class Cups {
+    static Cup cupl;
+    static Cup cup2;
+
+    static {
+        cupl = new Cup(1);
+        cup2 = new Cup(2);
+    }
+
+    Cups() {
+        System.out.println("Cups()");
+    }
+}
+
+class Bowl {
+    Bowl(int marker) {
+        System.out.println("Bowl(" + marker + ")");
+    }
+
+    void fl(int marker) {
+        System.out.println("fl(" + marker + ")");
+    }
+}
+
+class Table {
+    static Bowl bowl1 = new Bowl(1);
+
+    Table() {
+        System.out.println("Table()");
+        bowl2.fl(1);
+    }
+
+    void f2(int marker) {
+        System.out.println("f2(" + marker + ")");
+    }
+
+    static Bowl bowl2 = new Bowl(2);
+}
+
+class Cupboard {
+    Bowl bowl3 = new Bowl(3);
+    static Bowl bowl4 = new Bowl(4);
+
+    Cupboard() {
+        System.out.println("Cupboard()");
+        bowl4.fl(2);
+    }
+
+    void f3(int marker) {
+        System.out.println("f3(" + marker + ")");
+    }
+
+    static Bowl bowl5 = new Bowl(5);
+}
+
 class Book {
     boolean checkedOut = false;
 
@@ -76,7 +161,27 @@ class Rock {
 }
 
 public class Initialization {
+    boolean t;
+    char c;
+    byte b;
+    short sh;
+    long l;
+    float f;
+    double d;
+    Initialization reference;
     int i = 0;
+
+    void printInitialValues() {
+        System.out.println("Tnn данных " + "Начальное значение");
+        System.out.println("boolean " + t);
+        System.out.println("char [ " + c + "]");
+        System.out.println("byte " + b);
+        System.out.println("short " + sh);
+        System.out.println("long " + l);
+        System.out.println("float " + f);
+        System.out.println("double " + d);
+        System.out.println("reference " + reference);
+    }
 
     Initialization increment() {
         i++;
@@ -115,6 +220,17 @@ public class Initialization {
     void printPetalCount() {
 //! this(ll); // Разрешается только в конструкторах!
         System.out.println("petalCount = " + petalCount + " s = " + s);
+    }
+
+    static Table table = new Table();
+    static Cupboard cupboard = new Cupboard();
+
+    Mug mugl;
+    Mug mug2;
+    {
+        mugl = new Mug(1);
+        mug2 = new Mug(2);
+        System.out.println("mugl & mug2 инициализированы");
     }
 
     public static void main(String[] args) {
@@ -167,6 +283,69 @@ public class Initialization {
         new Book(true);
         // Принудительная уборка мусора и финализация:
         System.gc();
+
+        Initialization iv = new Initialization();
+        iv.printInitialValues();
+
+
+        System.out.println("Co3flaHMe нового объекта Cupboard в main()");
+        new Cupboard();
+        System.out.println("Co3flaHne нового объекта Cupboard в main()");
+        new Cupboard();
+        table.f2(1);
+        cupboard.f3(1);
+
+
+        System.out.println("Inside main()");
+        Cups.cupl.f(99);
+
+        System.out.println("B методе main()");
+        new Initialization();
+        System.out.println("new Mugs() завершено");
+        new Initialization(1);
+        System.out.println("new Mugs(l) завершено");
+
+
+        int[] arr1 = {1, 2, 3, 4, 5 };
+        int[] arr2;
+        arr2 = arr1;
+        for(int i = 0; i < arr2.length; i++) {
+            arr2[i] = arr2[i] + 1;
+        }
+        for(int i = 0; i < arr1.length; i++) {
+            System.out.println("al[" + i + "] = " + arr1[i]);
+        }
+
+        int[] aa;
+        Random rand = new Random(47);
+        aa = new int[rand.nextInt(20)];
+        System.out.println("flAMHa а = " + aa.length);
+        System.out.println(Arrays.toString(aa));
+
+        Random rand1 = new Random(47);
+        Integer[] a1 = new Integer[rand1.nextInt(20)];
+        System.out.println("AnnHa а = " + a1.length);
+        for(int i = 0; i < a1.length; i++) {
+            a1[i] = rand.nextInt(500); // Автоматическая упаковка
+        }
+        System.out.println(Arrays.toString(a1));
+
+        Integer[] a2 = {
+                new Integer(1),
+                new Integer(2),
+                3, // Autoboxing
+        };
+        Integer[] bb = new Integer[]{
+                new Integer(1),
+                new Integer(2),
+                3, // Автоматическая упаковка
+        };
+        System.out.println(Arrays.toString(a2));
+        System.out.println(Arrays.toString(bb));
+
+        Other.main(new String[]{ "fiddle", "de", "dum" });
+
+
     }
 
     static void f(String s, int i) {

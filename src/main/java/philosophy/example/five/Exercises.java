@@ -1,5 +1,29 @@
 package philosophy.example.five;
 
+class Cupp {
+    Cupp(int marker) {
+        System.out.println("Cup(" + marker + ")");
+    }
+
+    void f(int marker) {
+        System.out.println("f(" + marker + ")");
+    }
+}
+
+class Cupps {
+    static Cup cupl;
+    static Cup cup2;
+
+    static {
+        cupl = new Cup(1);
+        cup2 = new Cup(2);
+    }
+
+    Cupps() {
+        System.out.println("Cups()");
+    }
+}
+
 class Tank {
     boolean full;
     Tank() {
@@ -73,6 +97,14 @@ public class Exercises {
         this.b();
     }
 
+    static String st1;
+    static String st2;
+    static {
+        st2 = "dsfs";
+    }
+
+    String s1;
+    { s1 = "'instance initialization'"; }
 
     /** 1) Create a class with an uninitialized reference to String.
      * Show 4ToJava initializes the link with a null value.
@@ -174,5 +206,45 @@ public class Exercises {
         new Tank().finalize();
         new Tank().empty();
         new Tank().finalize();
+
+
+        /** 13) Check the truth of the statements from the previous paragraph.
+         */
+        System.out.println("Inside main()");
+        Cupps.cupl.f(99);
+
+
+        /** 14) Create a class with a static String field initialized at the definition point
+         * and another field initialized in the static block. Add a static method
+         * that outputs the values of the fields and demonstrates that both fields
+         * are initialized before use
+         */
+        st1 = "dfsdfsdf";
+        System.out.println(st1);
+        System.out.println(st2);
+
+        /** 15) Create a class derived from String, initialized
+         * in the instance initialization section.
+         */
+        new Exercises();
+        new Exercises(1);
+
+        /** 16) Create an array of String objects.
+         * Assign a String object to each element.
+         * Output the contents of the array in the for loop.
+         */
+
+
+        /** 17) Create a class with a constructor that receives the String argument.
+         * Output the value of the argument during construction.
+         * Create an array of references to this class,
+         * but do not create objects that fill the array. Run the program
+         * and see if the messages will be displayed when the constructors are called.
+         */
+
+
+        /** 18) Complete the previous exercise — create objects that fill
+         * the array of links.
+         */
     }
 }
