@@ -3,9 +3,18 @@ package philosophy.example.five;
 import java.util.Arrays;
 import java.util.Random;
 
+
+enum Spiciness {
+    NOT, MILD, HOT
+}
+
+class A {
+    int il;
+}
+
 class Other {
     public static void main(String[] args) {
-        for(String s : args)
+        for (String s : args)
             System.out.print(s + " ");
     }
 }
@@ -13,10 +22,6 @@ class Other {
 class Mug {
     Mug(int marker) {
         System.out.println("Mug(" + marker + ")");
-    }
-
-    void f(int marker) {
-        System.out.println("f(" + marker + ")");
     }
 }
 
@@ -227,11 +232,44 @@ public class Initialization {
 
     Mug mugl;
     Mug mug2;
+
     {
         mugl = new Mug(1);
         mug2 = new Mug(2);
         System.out.println("mugl & mug2 инициализированы");
     }
+
+    static void printArray(Object[] args) {
+        for (Object obj : args)
+            System.out.print(obj + " ");
+        System.out.println();
+    }
+
+    static void printArray1(Object... args) {
+        for (Object obj : args)
+            System.out.print(obj + " ");
+        System.out.println();
+    }
+
+    Spiciness degree;
+
+    public Initialization(Spiciness degree) {
+        this.degree = degree;
+    }
+
+    public void describe() {
+        System.out.print("This burrito is ");
+        switch (degree) {
+            case NOT:
+                System.out.println("not spicy at all.");
+                break;
+            case MILD:
+            case HOT:
+            default:
+                System.out.println("maybe too hot.");
+        }
+    }
+
 
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
@@ -306,13 +344,13 @@ public class Initialization {
         System.out.println("new Mugs(l) завершено");
 
 
-        int[] arr1 = {1, 2, 3, 4, 5 };
+        int[] arr1 = {1, 2, 3, 4, 5};
         int[] arr2;
         arr2 = arr1;
-        for(int i = 0; i < arr2.length; i++) {
+        for (int i = 0; i < arr2.length; i++) {
             arr2[i] = arr2[i] + 1;
         }
-        for(int i = 0; i < arr1.length; i++) {
+        for (int i = 0; i < arr1.length; i++) {
             System.out.println("al[" + i + "] = " + arr1[i]);
         }
 
@@ -325,7 +363,7 @@ public class Initialization {
         Random rand1 = new Random(47);
         Integer[] a1 = new Integer[rand1.nextInt(20)];
         System.out.println("AnnHa а = " + a1.length);
-        for(int i = 0; i < a1.length; i++) {
+        for (int i = 0; i < a1.length; i++) {
             a1[i] = rand.nextInt(500); // Автоматическая упаковка
         }
         System.out.println(Arrays.toString(a1));
@@ -343,10 +381,45 @@ public class Initialization {
         System.out.println(Arrays.toString(a2));
         System.out.println(Arrays.toString(bb));
 
-        Other.main(new String[]{ "fiddle", "de", "dum" });
+        Other.main(new String[]{"fiddle", "de", "dum"});
 
+        printArray1(new Object[]{
+                new Integer(47), new Float(3.14), new Double(11.11)
+        });
+        printArray1(new Object[]{"pa3", "два", "три"});
+        printArray1(new Object[]{new A(), new A(), new A()});
+
+        printArray1(new Integer(47), new Float(3.14),
+                new Double(11.11));
+        printArray1(47, 3.14F, 11.11);
+        printArray1("pa3", "два", "три");
+        printArray1(new A(), new A(), new A());
+// Или массив:
+        printArray1((Object[]) new Integer[]{1, 2, 3, 4});
+        printArray1(); // Пустой список тоже возможен
+
+        ff(1, "один");
+        ff(2, "два", "три");
+        ff(0);
+
+        Spiciness spice = Spiciness.HOT;
+        System.out.println(spice);
+
+
+        Initialization plain = new Initialization(Spiciness.NOT),
+                jalapeno = new Initialization(Spiciness.HOT);
+        plain.describe();
+        jalapeno.describe();
 
     }
+
+    static void ff(int required, String... trailing) {
+        System.out.print("o6fl3aTenbHo: " + required + " ");
+        for (String s : trailing)
+            System.out.print(s + " ");
+        System.out.println();
+    }
+
 
     static void f(String s, int i) {
         System.out.println("String: " + s + ", int: " + i);

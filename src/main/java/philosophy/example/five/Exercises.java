@@ -1,12 +1,17 @@
 package philosophy.example.five;
 
-class Cupp {
-    Cupp(int marker) {
-        System.out.println("Cup(" + marker + ")");
-    }
+enum Money {
+    ONE, TWO, FIVE, TEN, TWENTY, FIFTY
+}
 
-    void f(int marker) {
-        System.out.println("f(" + marker + ")");
+/**
+ * 20) Write a main() method that uses a variable-length argument list
+ * instead of the usual syntax. Output all the elements of the resulting args array.
+ * Test the program with a different number of command line arguments
+ */
+class Main extends Exercises {
+    public static void main(String... args) {
+        Main.printString(args);
     }
 }
 
@@ -26,16 +31,19 @@ class Cupps {
 
 class Tank {
     boolean full;
+
     Tank() {
         full = true;
         System.out.println(full + " created");
     }
+
     public void empty() {
         full = false;
         System.out.println(full + "deleted");
     }
+
     protected void finalize() {
-        if(full) {
+        if (full) {
             System.out.println("Error, must be empty");
         } else {
             System.out.println("Tank cleaned up OK");
@@ -57,15 +65,19 @@ class Dog {
     public void bark() {
         System.out.println("Default bark!");
     }
+
     public void bark(int i) {
         System.out.println("int bark = howl");
     }
+
     public void bark(double d) {
         System.out.println("double bark = yip");
     }
+
     public void bark(int i, double d) {
         System.out.println("int, double bark");
     }
+
     public void bark(double d, int i) {
         System.out.println("double, int bark");
     }
@@ -82,9 +94,11 @@ public class Exercises {
         System.out.println("String arg constructor");
         System.out.println(s1);
     }
+
     Exercises() {
         System.out.println("Default constructor");
     }
+
     Exercises(int i) {
         this("i = " + i);
     }
@@ -92,6 +106,7 @@ public class Exercises {
     public void b() {
         System.out.println("b() called");
     }
+
     public void a() {
         b();
         this.b();
@@ -99,14 +114,50 @@ public class Exercises {
 
     static String st1;
     static String st2;
+
     static {
         st2 = "dsfs";
     }
 
     String s1;
-    { s1 = "'instance initialization'"; }
 
-    /** 1) Create a class with an uninitialized reference to String.
+    {
+        s1 = "'instance initialization'";
+    }
+
+    Exercises[] ex1 = new Exercises[2];
+
+    static void printString(String... sr) {
+        for (String sp : sr) {
+            System.out.println(sp);
+        }
+    }
+
+    static void describe(Money mm) {
+        switch (mm) {
+            case ONE:
+                System.out.println("George Washington");
+                break;
+            case TWO:
+                System.out.println("Thomas Jefferson");
+                break;
+            case FIVE:
+                System.out.println("Abraham Lincoln");
+                break;
+            case TEN:
+                System.out.println("Alexander Hamilton");
+                break;
+            case TWENTY:
+                System.out.println("Andrew Jackson");
+                break;
+            case FIFTY:
+                System.out.println("U.S. Grant");
+                break;
+        }
+    }
+
+    /**
+     * 1) Create a class with an uninitialized reference to String.
      * Show 4ToJava initializes the link with a null value.
      */
     public static void main(String[] args) {
@@ -233,7 +284,14 @@ public class Exercises {
          * Assign a String object to each element.
          * Output the contents of the array in the for loop.
          */
-
+        String[] sal = new String[4];
+        sal[0] = "Mamam";
+        sal[1] = "M";
+        sal[2] = "Fdfdfd";
+        sal[3] = "Ulklkl";
+        for (int i = 0; i < 4; i++) {
+            System.out.println(sal[i]);
+        }
 
         /** 17) Create a class with a constructor that receives the String argument.
          * Output the value of the argument during construction.
@@ -241,10 +299,37 @@ public class Exercises {
          * but do not create objects that fill the array. Run the program
          * and see if the messages will be displayed when the constructors are called.
          */
+        Exercises[] ex2 = new Exercises[3];
 
 
         /** 18) Complete the previous exercise — create objects that fill
          * the array of links.
          */
+        for (int i = 0; i < ex2.length; i++) {
+            ex2[i] = new Exercises(Integer.toString(i));
+        }
+
+
+        /** 19) Write a method that gets a list of variable-length arguments with an array
+         * String. Make sure that this method can be passed as a list of objects
+         * String, separated by commas, and String[].
+         */
+        printString("These", "are", "some", "strings");
+        printString(new String[]{"These", "are", "some", "strings"});
+
+
+        /** 21) Create a transfer with the names of six types of paper money. Iterate
+         * over the result of values() with the output of each value and its ordinal().
+         */
+        for (Money m : Money.values()) {
+            System.out.println(m + ", ordinal " + m.ordinal());
+        }
+
+
+        /** 22) Write the switch command to enumerate from the previous example.
+         * For each case, output an extended description of a specific currency.
+         */
+        for (Money m : Money.values())
+            describe(m);
     }
 }
