@@ -419,6 +419,43 @@ class Hide {
     }
 }
 
+class Instrument {
+    public void play() {}
+    static void tune(Instrument i) {
+// ...
+        i.play();
+    }
+}
+
+class Wind extends Instrument {
+    public static void main(String[] args) {
+        Wind flute = new Wind();
+        Instrument.tune(flute);
+    }
+}
+
+class Villain {
+    private String name;
+    protected void set(String nm) {name = nm;}
+    public Villain(String name) {this.name = name;}
+    public String toString() {
+        return "I love Villain and my name " + name;
+    }
+}
+
+class Orc extends Villain {
+    private int orcNumber;
+    public Orc(String name, int orcNumber) {
+        super(name);
+        this.orcNumber = orcNumber;
+    }
+    public static void main(String[] args) {
+        Orc orc = new Orc("Limburger", 12);
+        System.out.println(orc);
+        System.out.println(orc);
+    }
+}
+
 //class Lisa extends Homer {
 //    @Override
 //    void doh(Milhouse m) {
