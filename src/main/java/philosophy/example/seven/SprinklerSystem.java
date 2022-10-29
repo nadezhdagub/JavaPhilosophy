@@ -1,5 +1,7 @@
 package philosophy.example.seven;
 
+import java.util.Random;
+
 class WaterSource {
     private String s;
 
@@ -383,7 +385,7 @@ class CADSystem extends Shape {
     public static void main(String[] args) {
         CADSystem x = new CADSystem(47);
         try {
-        // kod and exception handling
+            // kod and exception handling
         } finally {
             x.dispose();
         }
@@ -395,13 +397,15 @@ class Homer {
         System.out.println("doh(char)");
         return 'd';
     }
+
     float doh(float f) {
         System.out.println("doh(float)");
         return 1.0f;
     }
 }
 
-class Milhouse {}
+class Milhouse {
+}
 
 class Bart extends Homer {
     void doh(Milhouse m) {
@@ -420,7 +424,9 @@ class Hide {
 }
 
 class Instrument {
-    public void play() {}
+    public void play() {
+    }
+
     static void tune(Instrument i) {
 // ...
         i.play();
@@ -436,8 +442,15 @@ class Wind extends Instrument {
 
 class Villain {
     private String name;
-    protected void set(String nm) {name = nm;}
-    public Villain(String name) {this.name = name;}
+
+    protected void set(String nm) {
+        name = nm;
+    }
+
+    public Villain(String name) {
+        this.name = name;
+    }
+
     public String toString() {
         return "I love Villain and my name " + name;
     }
@@ -445,16 +458,71 @@ class Villain {
 
 class Orc extends Villain {
     private int orcNumber;
+
     public Orc(String name, int orcNumber) {
         super(name);
         this.orcNumber = orcNumber;
     }
+
     public static void main(String[] args) {
         Orc orc = new Orc("Limburger", 12);
         System.out.println(orc);
         System.out.println(orc);
     }
 }
+
+class Value {
+    int i; // доступ в пределах пакета
+
+    public Value(int i) {
+        this.i = i;
+    }
+}
+
+class FinalData {
+    private static Random rand = new Random(47);
+    private String id;
+
+    public FinalData(String id) {
+        this.id = id;
+    }
+
+    // Могут быть кон стантам и времени компиляции:
+    private final int valueOne = 9;
+    private static final int VALUE_TWO = 99;
+    // Типичная открытая константа :
+    public static final int VALUE_THREE = 39;
+    // Не может быть константой времени компиляции:
+    private final int i4 = rand.nextInt(20);
+    static final int INT_5 = rand.nextInt(20);
+    private Value vl = new Value(11);
+    private final Value v2 = new Value(22);
+    private static final Value VAL_3 = new Value(33);
+    // Массивы:
+    private final int[] a = {1, 2, 3, 4, 5, 6};
+
+    public String toString() {
+        return id + " : " + " i4 = " + i4 + " , INT_5 = " + INT_5;
+    }
+
+    public static void main(String[] args) {
+        FinalData fdl = new FinalData(" f d l ");
+        // ! fdl.valueOne++ ; // Ошибка: значение нельзя изменить
+        fdl.v2.i++; // Объект не является неизменным!
+        fdl.vl = new Value(9); // OK - неявляется неизменным
+        for (int i = 0; i < fdl.a.length; i++)
+            fdl.a[i]++; // Объект неявляется неизменным!
+        // ! fdl.v2 = new Value ( 0 ) ; // Ошибка: ссылку
+        // ! fdl.VAL_3 = new Value ( l ) ; // нельзя изменить
+        // ! fdl.a = new i n t [ 3 ] ;
+        System.out.println(fdl);
+        System.out.println(" Co3 flae M FinalData ");
+        FinalData fd2 = new FinalData(" fd2 ");
+        System.out.println(fdl);
+        System.out.println(fd2);
+    }
+}
+
 
 //class Lisa extends Homer {
 //    @Override
