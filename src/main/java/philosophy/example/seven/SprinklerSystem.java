@@ -554,6 +554,124 @@ class BlankFinal {
 
     }
 }
+
+class Gizmo {
+    public void spin() {}
+}
+
+class FinalArguments {
+    void with(final Gizmo g) {
+        // ! g = new Gizmo(); // Запрещено -- g объявлено final
+    }
+
+    void without(Gizmo g) {
+        g = new Gizmo(); // Разрешено -- g не яаляется final
+        g.spin();
+    }
+
+    // void f(final int i) {i++;}  // нельзя изменять, неизменные примитивы доступны только для чтенияЖ
+    int g(final int i) {
+        return i + 1;
+    }
+
+    public static void main(String[] args) {
+        FinalArguments bf = new FinalArguments();
+        bf.without(null);
+        bf.with(null);
+    }
+}
+
+class WithFinals {
+    // То же, что и просто private
+    private final void f() {
+        System.out.println("WithFinals.f()");
+    }
+    // Также автоматически является final
+    private void g() {
+        System.out.println("WithFinals.g()");
+    }
+}
+
+class OverridingPrivate extends WithFinals {
+    private final void f() {
+        System.out.println("OverridingPrivate.f()");
+    }
+    private void g() {
+        System.out.println("OverridingPrivate.g()");
+    }
+}
+
+class OverridingPrivate2 extends OverridingPrivate {
+    public final void f() {
+        System.out.println("OverridingPrivate2.f()");
+    }
+    public void g() {
+        System.out.println("OverridingPrivate2.g()");
+    }
+}
+
+class FinalOverridingIllusion {
+    public static void main(String[] args) {
+        OverridingPrivate2 op2 = new OverridingPrivate2();
+        op2.f();
+        op2.g();
+        // Можно провести восходящее преобразование:
+        OverridingPrivate op = op2;
+        // Но методы при этом вызвать невозможно:
+        //! op.f();
+        //! op.g();
+        // И тоже самое здесь:
+        WithFinals wf = op2;
+        //! wf.f();
+        //! wf.g();
+    }
+}
+
+class SmallBrain {}
+
+final class Dinosaur {
+    int i = 7;
+    int j = 1;
+    SmallBrain x = new SmallBrain();
+    void f() {}
+}
+
+//! class Further extends Dinosaur {}
+// Ошибка: Нельзя расширить неизменный класс Dinosaur
+
+class Jurassic {
+    public static void main(String[] args) {
+        Dinosaur n = new Dinosaur();
+        n.f();
+        n.i = 40;
+        n.j++;
+    }
+}
+
+class Insect {
+    private int i = 9;
+    protected int j;
+    Insect() {
+        System.out.println("i = " + i + ", j = " + j);
+        j = 39;
+    }
+    private static int x1 = printInit("Поле static Insert.x1 инициализировано");
+    static int printInit(String s) {
+        System.out.println(s);
+        return 47;
+    }
+}
+
+class Beetle extends Insect {
+    private int k = printInit("Поле static Beetle.x2 инициализировано");
+
+    public static void main(String[] args) {
+        System.out.println("Constructor Beetle");
+        Beetle b = new Beetle();
+    }
+}
+
+
 //class Lisa extends Homer {
 //    @Override
 //    void doh(Milhouse m) {
