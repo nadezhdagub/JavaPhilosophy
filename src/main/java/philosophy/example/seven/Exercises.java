@@ -74,6 +74,12 @@ class Detergent1 extends Cleanser1 {
     }
 }
 
+class CartoonWithDefCtor extends Drawing {
+//! CartoonWithDefCtor() {
+//! System.out.println("CartoonWithDefCtor constructor");
+//! }
+}
+
 class NewDetergent extends Detergent {
     public void scrub() {
         append(" NewDetergent.scrub()");
@@ -83,6 +89,16 @@ class NewDetergent extends Detergent {
     public void sterilize() {
         append(" sterilize()");
     }
+}
+
+class Base1 {
+    public Base1() { System.out.println("Base1"); }
+}
+class Derived1 extends Base1 {
+    public Derived1() { System.out.println("Derived1"); }
+}
+class Derived2 extends Derived1 {
+    public Derived2() { System.out.println("Derived2"); }
 }
 
 public class Exercises extends Detergent {
@@ -125,6 +141,24 @@ public class Exercises extends Detergent {
         ex.scrub();
         System.out.println(ex);
 
+        /**
+         * 3) Prove the previous statement
+         */
+        new CartoonWithDefCtor();
 
+        /**
+         * 4) Prove that the constructors of the base class are:
+         * (a) always called and (b) always called before
+         * executing the constructors of the derived class.
+         */
+        new Derived2();
+
+        /**
+         * 5) Create two classes A and b that have default constructors
+         * (with an empty argument list) that output a call message.
+         * Create a new class c derived from A; create a field of type b in c.
+         * Do not create a constructor with. Create
+         * an object of class C and follow what is happening.
+         */
     }
 }
