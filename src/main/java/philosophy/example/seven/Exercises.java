@@ -92,13 +92,68 @@ class NewDetergent extends Detergent {
 }
 
 class Base1 {
-    public Base1() { System.out.println("Base1"); }
+    public Base1() {
+        System.out.println("Base1");
+    }
 }
+
 class Derived1 extends Base1 {
-    public Derived1() { System.out.println("Derived1"); }
+    public Derived1() {
+        System.out.println("Derived1");
+    }
 }
+
 class Derived2 extends Derived1 {
-    public Derived2() { System.out.println("Derived2"); }
+    public Derived2() {
+        System.out.println("Derived2");
+    }
+}
+
+class A {
+    public A() {
+        System.out.println("A()");
+    }
+    public A(String s) { System.out.println("A2(): " + s); }
+}
+
+class B {
+    public B() {
+        System.out.println("B()");
+    }
+    public B(String s) { System.out.println("2B(): " + s); }
+
+}
+
+class C extends A {
+    B b = new B();
+    public C(String s) {
+        super(s);
+        b = new B(s);
+    }
+}
+
+class Game1 {
+    Game1(int i) {
+        System.out.println("KoHCTpyKTop Game");
+    }
+}
+
+class BoardGame1 extends Game1 {
+    BoardGame1(int i) {
+        super(i);
+        System.out.println("KoHCTpyKTop BoardGame");
+    }
+}
+
+class Chess1 extends BoardGame1 {
+    Chess1() {
+        super(11);
+        System.out.println("KoHCTpyKTop Chess");
+    }
+
+    public static void main(String[] args) {
+        Chess x = new Chess();
+    }
 }
 
 public class Exercises extends Detergent {
@@ -160,5 +215,27 @@ public class Exercises extends Detergent {
          * Do not create a constructor with. Create
          * an object of class C and follow what is happening.
          */
+        //new C();
+
+        /**
+         * 6) Using the Chess example.java, prove the statements in the previous paragraph.
+         */
+        new Chess1();
+
+        /**
+         * 7) Change Exercise 5 so that classes A and b have constructors
+         * with arguments instead of default constructors. Write a constructor for class C
+         * and perform all the necessary initialization inside it.
+         */
+        new C("Init string");
+
+        /**
+         * 8) Create a base class with a single constructor that
+         * is not the default constructor, and a derived class with
+         * both a default constructor (without arguments) and arguments.
+         * In the constructor of the derived class
+         * call the base class constructor
+         */
+
     }
 }
