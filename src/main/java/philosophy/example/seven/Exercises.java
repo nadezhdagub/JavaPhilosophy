@@ -156,6 +156,19 @@ class Chess1 extends BoardGame1 {
     }
 }
 
+class BaseNonDefault {
+    public BaseNonDefault(int i) {}
+}
+
+class DerivedTwoConstructors extends BaseNonDefault {
+    public DerivedTwoConstructors() {
+        super(47);
+    }
+    public DerivedTwoConstructors(int i) {
+        super(i);
+    }
+}
+
 public class Exercises extends Detergent {
     /**
      * 1) Create a simple class. In the second class,
@@ -236,6 +249,7 @@ public class Exercises extends Detergent {
          * In the constructor of the derived class
          * call the base class constructor
          */
-
+        new DerivedTwoConstructors();
+        new DerivedTwoConstructors(47);
     }
 }
