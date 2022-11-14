@@ -338,5 +338,11 @@ public class Exercises extends Detergent {
          * (not by default).
          */
         new Stem(47);
+
+        /**
+         * 11) Change the Detergent example.
+         * java so that delegation is used in it.
+         */
+        
     }
 }
