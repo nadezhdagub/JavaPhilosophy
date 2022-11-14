@@ -113,19 +113,26 @@ class A {
     public A() {
         System.out.println("A()");
     }
-    public A(String s) { System.out.println("A2(): " + s); }
+
+    public A(String s) {
+        System.out.println("A2(): " + s);
+    }
 }
 
 class B {
     public B() {
         System.out.println("B()");
     }
-    public B(String s) { System.out.println("2B(): " + s); }
+
+    public B(String s) {
+        System.out.println("2B(): " + s);
+    }
 
 }
 
 class C extends A {
     B b = new B();
+
     public C(String s) {
         super(s);
         b = new B(s);
@@ -157,42 +164,83 @@ class Chess1 extends BoardGame1 {
 }
 
 class BaseNonDefault {
-    public BaseNonDefault(int i) {}
+    public BaseNonDefault(int i) {
+    }
 }
 
 class DerivedTwoConstructors extends BaseNonDefault {
     public DerivedTwoConstructors() {
         super(47);
     }
+
     public DerivedTwoConstructors(int i) {
         super(i);
     }
 }
 
 class Component1 {
-    public Component1() { System.out.println("Component1"); }
+    //    public Component1() {
+//        System.out.println("Component1");
+//    }
+    public Component1(int i) {
+        System.out.println("Component1b " + i);
+    }
 }
+
 class Component2 {
-    public Component2() { System.out.println("Component2"); }
+    //    public Component2() {
+//        System.out.println("Component2");
+//    }
+    public Component2(int i) {
+        System.out.println("Component2b " + i);
+    }
 }
+
 class Component3 {
-    public Component3() { System.out.println("Component3"); }
+    //    public Component3() {
+//        System.out.println("Component3");
+//    }
+    public Component3(int i) {
+        System.out.println("Component3b " + i);
+    }
 }
 
 class Root {
-    Component1 c1 = new Component1();
-    Component2 c2 = new Component2();
-    Component3 c3 = new Component3();
-    public Root() { System.out.println("Root"); }
-}
-class Stem extends Root {
-    Component1 c1 = new Component1();
-    Component2 c2 = new Component2();
-    Component3 c3 = new Component3();
-    public Stem() { System.out.println("Stem"); }
+    //    Component1 c1 = new Component1();
+//    Component2 c2 = new Component2();
+//    Component3 c3 = new Component3();
+//
+//    public Root() {
+//        System.out.println("Root");
+//    }
+    Component1 c1 = new Component1(1);
+    Component2 c2 = new Component2(2);
+    Component3 c3 = new Component3(3);
+
+    public Root(int i) {
+        System.out.println("Rootb");
+    }
 }
 
-    public class Exercises extends Detergent {
+class Stem extends Root {
+    //    Component1 c1 = new Component1();
+//    Component2 c2 = new Component2();
+//    Component3 c3 = new Component3();
+//
+//    public Stem() {
+//        System.out.println("Stem");
+//    }
+    Component1 c1 = new Component1(4);
+    Component2 c2 = new Component2(5);
+    Component3 c3 = new Component3(6);
+
+    public Stem(int i) {
+        super(i);
+        System.out.println("Stemb");
+    }
+}
+
+public class Exercises extends Detergent {
     /**
      * 1) Create a simple class. In the second class,
      * define a reference to an object of the first class.
@@ -282,6 +330,13 @@ class Stem extends Root {
          * also contains instances of each of the Component classes mentioned.
          * Each class must contain a default constructor that outputs a message about its call.
          */
-        new Stem();
+        //new Stem();
+
+        /**
+         * 10) Change the previous exercise so that
+         * only constructors with arguments are present in all classes
+         * (not by default).
+         */
+        new Stem(47);
     }
 }
