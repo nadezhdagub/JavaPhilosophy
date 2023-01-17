@@ -17,29 +17,36 @@ class Wind extends Instrument {
 }
 
 class String edextendsInstrument {
-public void play (Noten) {
+public void play(Note n) {
 print("Stringed.play()" + n );
     }
 }
 
 class Brass extends Instrument {
-public void play (Noten) {
-print("Brass.play()" + n ) ;
+public void play(Note n) {
+print("Brass.play()" + n );
 }
 }
 
 class Music2 {
-public static void tune (Wind i) {
-i. play (Note.MIDDLEC ) ;
+public static void tune(Wind i) {
+i.play (Note.MIDDLEC);
 }
     
 public static void tune(String edi) {
-i.play(Note.MIDDLE_C) ;
+i.play(Note.MIDDLE_C);
 }
     
-public static void tune (Brassi) {
-i.play ( Note.MIDDLE_C) ;
+public static void tune(Brass i) {
+i.play (Note.MIDDLE_C);
 }
+    
+BrassfrenchHorn = new Brass();
+tune (flute); // Без восходящ его п реобразовани я
+tune (violin);
+tune (frenchHorn);
+}
+}    
     
 public static void main (String[] args) {
 Wind flute = new Wind();
