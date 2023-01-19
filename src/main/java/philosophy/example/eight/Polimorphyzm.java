@@ -41,7 +41,12 @@ public static void tune(Brass i) {
 i.play (Note.MIDDLE_C);
 }
     
-BrassfrenchHorn = new Brass();
+public static void tune (Instrumenti) {
+// ...
+i.play(Note.MIDDLE_C);
+} 
+    
+Brass frenchHorn = new Brass();
 tune (flute); // Без восходящ его п реобразовани я
 tune (violin);
 tune (frenchHorn);
