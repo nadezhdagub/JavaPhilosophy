@@ -51,7 +51,14 @@ tune (flute); // Без восходящ его п реобразовани я
 tune (violin);
 tune (frenchHorn);
 }
-}    
+}  
+
+/*
+class Shape {
+public void draw() {}
+public void erase() {} 
+}
+*/
     
 public static void main (String[] args) {
 Wind flute = new Wind();
