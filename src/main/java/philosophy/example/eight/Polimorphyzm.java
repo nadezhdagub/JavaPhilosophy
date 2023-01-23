@@ -59,6 +59,11 @@ public void draw() {}
 public void erase() {} 
 }
 */
+
+class Circle extends Shape {
+public void draw() { print( "Circle.draw()" ); }
+public void erase() { print("Circle.erase()" ); }
+} 
     
 public static void main (String[] args) {
 Wind flute = new Wind();
