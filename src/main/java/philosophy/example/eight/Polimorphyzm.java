@@ -64,6 +64,11 @@ class Circle extends Shape {
 public void draw() { print( "Circle.draw()" ); }
 public void erase() { print("Circle.erase()" ); }
 } 
+
+class Square extends Shape {
+public void draw() { print("Square.draw()" ); }
+public void erase() { print("Square.erase()" ); }
+}
     
 public static void main (String[] args) {
 Wind flute = new Wind();
