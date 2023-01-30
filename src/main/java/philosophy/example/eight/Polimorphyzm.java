@@ -74,6 +74,18 @@ class Triangle extends Shape {
 public void draw() { print(" riangle.draw()" ); }
 public void erase() { print("Triangle.erase()" ); }
 }
+
+class Random ShapeGenerator {
+private Random rand = new Random(47);
+public Shape next() {
+switch(rand.nextInt(3)) {
+default:
+case 0 : return new Circle() ;
+case 1: return new Square() ;
+case 2: return new Triangle() ;
+}
+    }
+    }
     
 public static void main (String[] args) {
 Wind flute = new Wind();
