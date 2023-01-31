@@ -86,6 +86,19 @@ case 2: return new Triangle() ;
 }
     }
     }
+
+class Shapes {
+private static Random ShapeGeneratorgen = new Random ShapeGenerator();
+public static void main (String[] args) {
+Shape[] s = new Shape[9];
+// Заполняем м асси в ф игурами:
+for (int i = 0 ; i < s.length; i++)
+s[i] = gen.next() ;
+// Полиморфные вызовы методов :
+for (Shapeshp : s)
+shp.draw() ;
+}
+}
     
 public static void main (String[] args) {
 Wind flute = new Wind();
