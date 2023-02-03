@@ -120,3 +120,9 @@ void play(Note n) {print("Instrument.play()" + n ); }
 String what() { return "Instrument"; }
 void adjust() { print("Adjust ing Instrument" ) ; }
 }   
+
+class Wind extends Instrument {
+void play ( Note n) { print ("Wind.play()" + n ) ; }
+String what() { return "Wind"; }
+void adjust() { print ( "Adjusting Wind"); }
+                     }
