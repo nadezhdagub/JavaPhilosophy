@@ -132,3 +132,9 @@ class Percussion extends Instrument {
      String what() { return "Percussion" ; }
      void adjust() { print ("Adjusting Percussion" ) ; }
 }    
+
+class String edextends Instrument {
+void play ( Note n ) { print ( "Stringed.play()" + n ) ; }
+String what() { return "String ed " ; }
+void adjust() { print ( " Adjusting String ed " ) ; }
+               }    
