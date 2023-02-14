@@ -144,3 +144,7 @@ void play( Note n ) { print ( "8rass.play()" + n ) ; }
 void adjust() { print ( "Adjusting Brass” ) ; }
 }
     
+class Woodwind extends Wind {
+void play ( Note n ) { print ( "Woodwind.play()” + n ) ; }
+String what() { return "Woodwind” ; }
+               }
