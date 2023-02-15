@@ -148,3 +148,16 @@ class Woodwind extends Wind {
 void play ( Note n ) { print ( "Woodwind.play()” + n ) ; }
 String what() { return "Woodwind” ; }
                }
+
+class Music3 {
+// Работа метода не зависит от фактического типа объекта ,
+// поэтому типы, добавленные в систему, будут работать правильно:
+public static void tune ( Instrument i ) {
+// ...
+i.play (Note.MIDDLE_C) ;
+}
+public static void tuneAll( Instrument[] e ) {
+for ( Instrumenti : e)
+tune ( i ) ;
+}
+                              
