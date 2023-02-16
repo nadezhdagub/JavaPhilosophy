@@ -161,3 +161,15 @@ for ( Instrumenti : e)
 tune ( i ) ;
 }
                               
+public static void main( String[] args ) {
+// Восходящее преобразование при добавлении в массив:
+Instrument[] orchestra = {
+new Wind() ,
+new Percussion() ,
+new Stringed() ,
+new Brass() ,
+new Woodwind()
+    };
+tuneAll(orchestra ) ;
+}
+    } 
