@@ -173,3 +173,11 @@ new Woodwind()
 tuneAll(orchestra ) ;
 }
     } 
+
+class PrivateOverride {
+private void f() { print( "privatef()" ); }
+public static void main (String[] args) {
+PrivateOverride po = new Derived();
+po.f();
+}
+    }
