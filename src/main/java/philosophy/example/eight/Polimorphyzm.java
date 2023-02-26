@@ -181,3 +181,7 @@ PrivateOverride po = new Derived();
 po.f();
 }
     }
+                              
+class Derived extends Private Override {
+public void f() { print( "publicf()") ; }
+}                              
