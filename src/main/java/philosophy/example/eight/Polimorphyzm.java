@@ -184,4 +184,9 @@ po.f();
                               
 class Derived extends Private Override {
 public void f() { print( "publicf()") ; }
+}   
+                              
+class Super {
+public int field = 0 ;
+public int getField() { return field ; }
 }                              
