@@ -228,3 +228,11 @@ public String dynamicGet() {
 return "Производная версия dynamicGet()" ;
 }
 }
+
+class StaticPolymorphism {
+public static void main( String[] args) {
+StaticSuper sup = new StaticSub(); // Восходящ ее преобразование
+System.out.println( sup.staticGet());
+System.out.println( sup.dynamicGet());
+}
+}                              
