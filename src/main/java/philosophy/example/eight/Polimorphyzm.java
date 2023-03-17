@@ -236,3 +236,7 @@ System.out.println( sup.staticGet());
 System.out.println( sup.dynamicGet());
 }
 }                              
+
+class Meal {
+Meal() { print ("Meal()" ) ; }
+}                              
