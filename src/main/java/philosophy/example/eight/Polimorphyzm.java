@@ -240,3 +240,7 @@ System.out.println( sup.dynamicGet());
 class Meal {
 Meal() { print ("Meal()" ) ; }
 }                              
+
+class Bread {
+Bread() { print("Bread()"); }
+                          }                              
