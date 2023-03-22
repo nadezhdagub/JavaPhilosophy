@@ -244,3 +244,6 @@ Meal() { print ("Meal()" ) ; }
 class Bread {
 Bread() { print("Bread()"); }
                           }                              
+class Cheese {
+Cheese() { print( "Cheese()" ); }
+                }
