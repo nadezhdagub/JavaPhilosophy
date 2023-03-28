@@ -247,3 +247,7 @@ Bread() { print("Bread()"); }
 class Cheese {
 Cheese() { print( "Cheese()" ); }
                 }
+                              
+c l a s s L e t t u c e {
+L e t t u c e ( ) { p r i n t ( " L e t t u c e ( ) " ) j >
+}
