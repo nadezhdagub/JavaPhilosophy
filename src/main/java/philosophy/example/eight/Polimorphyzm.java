@@ -249,5 +249,5 @@ Cheese() { print( "Cheese()" ); }
                 }
                               
 class Lettuce {
-Lettu c e ( ) { p r i n t ( " L e t t u c e ( ) " ); }
+Lettuc e ( ) { p r i n t ( " L e t t u c e ( ) " ); }
 }
