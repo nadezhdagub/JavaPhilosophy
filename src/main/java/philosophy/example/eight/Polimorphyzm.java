@@ -248,6 +248,6 @@ class Cheese {
 Cheese() { print( "Cheese()" ); }
                 }
                               
-class Le t t u c e {
+class Let t u c e {
 L e t t u c e ( ) { p r i n t ( " L e t t u c e ( ) " ); }
 }
