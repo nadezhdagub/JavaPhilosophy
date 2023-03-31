@@ -251,3 +251,7 @@ Cheese() { print( "Cheese()" ); }
 class Lettuce {
 Lettuce() { print( "Lettuce()" ); }
 }
+
+class Lunch extends Meal {
+Lunch() { print( "Lunch()") ; }
+              }
