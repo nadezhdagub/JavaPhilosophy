@@ -255,3 +255,7 @@ Lettuce() { print( "Lettuce()" ); }
 class Lunch extends Meal {
 Lunch() { print( "Lunch()") ; }
               }
+
+class PortableLunch extends Lunch {
+PortableLunch() { print ( " PortableLunch()" ); }
+}                              
