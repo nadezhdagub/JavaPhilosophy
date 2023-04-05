@@ -260,12 +260,12 @@ class PortableLunch extends Lunch {
 PortableLunch() { print ( " PortableLunch()" ); }
 }                              
 
-c l a s s S a n d w ich e x te n d s P o r t a b le L u n c h {
-p r i v a t e B re a d b = new B r e a d ( ) ;
-p r i v a t e C h e e se c = new C h e e s e ( ) ;
-p r i v a t e L e t t u c e 1 = new L e t t u c e ( ) ;
-p u b l i c S a n d w ic h () { p r in t ( " S a n d w ic h ( ) " ) ; }
-p u b l i c s t a t i c v o id m a in ( S t r in g [ ] a r g s ) {
-new S a n d w ic h () ;
+class Sandwich extends PortableLunch {
+private Breadb = new Bread();
+private Cheesec = new Cheese();
+private Lettuce1 = new Lettuce();
+public Sandwich() { print("Sandwich()"); }
+public static void main( String[ ] args ) {
+new Sandwich() ;
 }
     }                              
