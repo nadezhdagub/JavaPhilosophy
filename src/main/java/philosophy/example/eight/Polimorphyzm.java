@@ -270,13 +270,13 @@ new Sandwich() ;
 }
     }                              
 
-c l a s s C h a r a c t e r i s t i c {
-p r i v a t e S t r i n g s ;
-C h a r a c t e r i s t i c ( S t r i n g s ) {
-t h i s . s = s ;
-p r in t( " C o 3 fla e M C h a r a c t e r i s t i c " + s ) ;
+class Characteristic {
+private Strings ;
+Characteristic ( String s ) {
+this.s = s ;
+print( "Co3flae M Characteristic" + s ) ;
 }
-p r o t e c t e d v o id d is p o s e ( ) {
-p rin t("3 a e e p u ja e M C h a r a c t e r i s t i c " + s ) ;
+protected void dispose() {
+print("3aeepujae M Characteristic" + s ) ;
 }
     }
