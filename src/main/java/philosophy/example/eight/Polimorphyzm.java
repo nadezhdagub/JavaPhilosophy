@@ -281,7 +281,7 @@ print("3aeepujae M Characteristic" + s ) ;
 }
     }
 
-c l a s s D e s c r i p t io n {
+c l a s s Description {
 private String s;
 Description( String s) {
 this.s = s;
