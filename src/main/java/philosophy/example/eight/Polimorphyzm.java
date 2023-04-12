@@ -285,9 +285,9 @@ c l a s s D e s c r i p t io n {
 p r i v a t e S t r i n g s ;
 D e s c r i p t i o n ( S t r i n g s ) {
 t h i s . s = s ;
-p r in t( " C o 3 fla e M D e s c r i p t io n " + s ) ;
+p r in t( " C o 3 fla e M Description" + s);
 }
 protected void dispose() {
-print(" 3aeepujae M Description" + s) ;
+print(" 3aeepujae M Description" + s);
 }
 }                              
