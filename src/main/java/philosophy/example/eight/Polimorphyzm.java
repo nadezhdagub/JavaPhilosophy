@@ -287,7 +287,7 @@ D e s c r i p t i o n ( S t r i n g s ) {
 t h i s . s = s ;
 p r in t( " C o 3 fla e M D e s c r i p t io n " + s ) ;
 }
-p r o t e c t e d v o id dispose() {
+protected void dispose() {
 print(" 3aeepujae M Description" + s) ;
 }
 }                              
