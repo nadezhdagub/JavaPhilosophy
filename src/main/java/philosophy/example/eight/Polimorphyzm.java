@@ -283,7 +283,7 @@ print("3aeepujae M Characteristic" + s ) ;
 
 c l a s s D e s c r i p t io n {
 p r i v a t e S t r i n g s ;
-D e s c r i p t i o n ( String s) {
+Description( String s) {
 this.s = s;
 print( "Co3flae M Description" + s);
 }
