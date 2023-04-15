@@ -319,6 +319,6 @@ p r o t e c t e d v o id d is p o s e ( ) {
 p r in t ( " d is p o s e ( ) в A n im a l " ) ;
 t . d i s p o s e ( ) ;
 p .d is p o s e ( ) ;
-s u p e r .d is p o s e ( ) ;
+super.dispose() ;
 }
     }
