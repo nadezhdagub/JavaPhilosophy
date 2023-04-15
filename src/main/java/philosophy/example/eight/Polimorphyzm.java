@@ -302,7 +302,7 @@ L iv in g C r e a t u r e ( ) {
 p r i n t ( " L iv i n g C r e a t u r e ( ) ” ) ;
            }
 p r o t e c t e d v o id d is p o s e ( ) {
-p r i n t ( " d i s p o s e ( ) в L iv in g C r e a t u r e " ) ;
+print("dispose() в LivingCreature");
 t.dispose();
 p.dispose();
 }
