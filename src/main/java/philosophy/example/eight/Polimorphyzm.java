@@ -296,10 +296,9 @@ print(" 3aeepujae M Description" + s);
 c l a s s L iv in g C r e a t u r e {
 p r i v a t e C h a r a c t e r i s t i c p =
 new C h a r a c t e r is t ic ( ''x n B o e с у щ е с т в о " );
-p r i v a t e D e s c r i p t io n t =
-new Description(''o6bi4Hoe живое существо");
+p r i v a t e D e s c r i p t io n t = new Description("o6ычное живое существо");
 LivingCreature() {
-print("LivingCreature()”);
+print("LivingCreature()");
            }
 protected void dispose() {
 print("dispose() в LivingCreature");
