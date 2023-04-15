@@ -311,7 +311,7 @@ p . d i s p o s e ( ) ;
 // животное
 c l a s s A n itn a l e x te n d s L iv in g C r e a t u r e {
 p r i v a t e C h a r a c t e r i s t i c p =
-new C h a r a c t e r is t ic ( " H M e e T с е р д ц е " ) ;
+new Characteristic( "H MeeT сердце");
 private Descriptiont = new Description('^nBOTHoe, не растение");
 Animal() { print("Animal()"); }
 protected void dispose() {
