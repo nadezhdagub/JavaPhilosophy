@@ -308,3 +308,17 @@ p . d i s p o s e ( ) ;
 }
     }
                               
+// животное
+c l a s s A n itn a l e x te n d s L iv in g C r e a t u r e {
+p r i v a t e C h a r a c t e r i s t i c p =
+new C h a r a c t e r is t ic ( " H M e e T с е р д ц е " ) ;
+p r i v a t e D e s c r i p t io n t =
+new Description('^nBOTHoe, не растение");
+A n im a l( ) { p r i n t ( " A n i m a l ( ) " ) ; }
+p r o t e c t e d v o id d is p o s e ( ) {
+p r in t ( " d is p o s e ( ) в A n im a l " ) ;
+t . d i s p o s e ( ) ;
+p .d is p o s e ( ) ;
+s u p e r .d is p o s e ( ) ;
+}
+    }
