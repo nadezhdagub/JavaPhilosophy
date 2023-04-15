@@ -309,7 +309,7 @@ p . d i s p o s e ( ) ;
     }
                               
 // животное
-c l a s s A n itn a l extends LivingCreature {
+class Anitnal extends LivingCreature {
 private Characteristic p = new Characteristic( "H MeeT сердце");
 private Descriptiont = new Description('^nBOTHoe, не растение");
 Animal() { print("Animal()"); }
