@@ -317,7 +317,7 @@ new Description('^nBOTHoe, не растение");
 A n im a l( ) { p r i n t ( " A n i m a l ( ) " ) ; }
 p r o t e c t e d v o id d is p o s e ( ) {
 p r in t ( " d is p o s e ( ) в A n im a l " ) ;
-t . d i s p o s e ( ) ;
+t.dispose();
 p.dispose();
 super.dispose();
 }
