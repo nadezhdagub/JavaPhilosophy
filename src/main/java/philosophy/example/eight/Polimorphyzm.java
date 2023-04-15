@@ -298,7 +298,7 @@ p r i v a t e C h a r a c t e r i s t i c p =
 new C h a r a c t e r is t ic ( ''x n B o e с у щ е с т в о " );
 p r i v a t e D e s c r i p t io n t =
 new Description(''o6bi4Hoe живое существо");
-L iv in g C r e a t u r e ( ) {
+LivingCreature() {
 print("LivingCreature()”);
            }
 protected void dispose() {
