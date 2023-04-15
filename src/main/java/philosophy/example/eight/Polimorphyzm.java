@@ -301,7 +301,7 @@ new Description(''o6bi4Hoe живое существо");
 L iv in g C r e a t u r e ( ) {
 p r i n t ( " L iv i n g C r e a t u r e ( ) ” ) ;
            }
-p r o t e c t e d v o id d is p o s e ( ) {
+protected void dispose() {
 print("dispose() в LivingCreature");
 t.dispose();
 p.dispose();
