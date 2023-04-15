@@ -314,7 +314,7 @@ p r i v a t e C h a r a c t e r i s t i c p =
 new C h a r a c t e r is t ic ( " H M e e T с е р д ц е " ) ;
 p r i v a t e D e s c r i p t io n t =
 new Description('^nBOTHoe, не растение");
-A n im a l( ) { p r i n t ( " A n i m a l ( ) " ) ; }
+Animal() { print("Animal()"); }
 protected void dispose() {
 print("dispose() в Animal");
 t.dispose();
