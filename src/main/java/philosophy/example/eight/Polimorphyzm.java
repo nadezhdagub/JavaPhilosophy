@@ -318,3 +318,19 @@ p.dispose();
 super.dispose();
 }
     }
+
+c la s s A m p h ib ia n e x te n d s A n im a l {
+p r iv a t e C h a r a c t e r i s t i c p =
+new Characteristic("MoxeT жить в воде");
+private Description t =
+new D e s c r ip t io n ( " n в во д е, и на з е м л е ");
+A m p h ib ia n () {
+p r in t ( ''A m p h ib ia n ( ) " ) ;
+          }
+p r o te c te d v o id d is p o s e ( ) {
+p r in t ( " d is p o s e ( ) в A m p h ib ia n " ) ;
+t . d i s p o s e ( ) ;
+p .d is p o s e ( ) ;
+s u p e r .d is p o s e ( ) ;
+}
+    }                                       
