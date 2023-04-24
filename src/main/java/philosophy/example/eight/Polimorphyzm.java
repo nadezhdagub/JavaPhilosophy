@@ -319,7 +319,7 @@ super.dispose();
 }
     }
 
-c la s s A m p h ib ia n e x te n d s A n im a l {
+class Amphibian extends Animal {
 private Characteristic p = new Characteristic("MoxeT жить в воде");
 private Description t = new Description("nо воде, и на земле");
 Amphibian() {
