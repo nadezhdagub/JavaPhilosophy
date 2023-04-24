@@ -327,7 +327,7 @@ new D e s c r ip t io n ( " n в во д е, и на з е м л е ");
 A m p h ib ia n () {
 p r in t ( ''A m p h ib ia n ( ) " ) ;
           }
-p r o te c te d v o id d is p o s e ( ) {
+protected void dispose() {
 print("dispose() в Amphibian");
 t.dispose();
 p.dispose();
