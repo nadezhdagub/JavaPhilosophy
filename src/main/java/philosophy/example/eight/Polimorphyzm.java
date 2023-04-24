@@ -325,7 +325,7 @@ new Characteristic("MoxeT жить в воде");
 private Description t =
 new D e s c r ip t io n ( " n в во д е, и на з е м л е ");
 A m p h ib ia n () {
-p r in t ( ''A m p h ib ia n ( ) " ) ;
+p r in t ( "A m p h ib ia n ( ) " );
           }
 protected void dispose() {
 print("dispose() в Amphibian");
