@@ -323,7 +323,7 @@ c la s s A m p h ib ia n e x te n d s A n im a l {
 p r iv a t e C h a r a c t e r i s t i c p =
 new Characteristic("MoxeT жить в воде");
 private Description t =
-new D e s c r ip t io n ( " n в во д е, и на з е м л е ");
+new D e s c r ip t io n ( " nо воде, и на земле");
 Amphibian() {
 print("Amphibian()");
           }
