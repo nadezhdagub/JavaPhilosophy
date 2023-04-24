@@ -328,7 +328,7 @@ A m p h ib ia n () {
 p r in t ( ''A m p h ib ia n ( ) " ) ;
           }
 p r o te c te d v o id d is p o s e ( ) {
-p r in t ( " d is p o s e ( ) в A m p h ib ia n " ) ;
+print("dispose() в Amphibian");
 t.dispose();
 p.dispose();
 super.dispose();
