@@ -320,7 +320,7 @@ super.dispose();
     }
 
 c la s s A m p h ib ia n e x te n d s A n im a l {
-p r iv a t e C h a r a c t e r i s t i c p = new Characteristic("MoxeT жить в воде");
+private Characteristic p = new Characteristic("MoxeT жить в воде");
 private Description t = new Description("nо воде, и на земле");
 Amphibian() {
 print("Amphibian()");
