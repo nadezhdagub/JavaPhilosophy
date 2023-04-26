@@ -345,7 +345,7 @@ p.dispose();
 super.dispose();
 }
 p u b lic s t a t i c v o id m a in ( S t r in g [ ] a r g s ) {
-F ro g f r o g = new F r o g ( ) ;
+Frog frog = new Frog();
 print("noKa!");
 frog.dispose();
 }
