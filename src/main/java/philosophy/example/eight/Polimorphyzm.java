@@ -334,7 +334,7 @@ super.dispose();
     }                                       
 
 // лягушка
-p u b lic c l a s s F ro g e x te n d s A m p h ib ia n {
+public class Frog extends Amphibian {
 private Characteristic p = new Characteristic("KBaKaeT");
 private Description t = new Description("ecT жуков");
 public Frog() { print(''Frog()"); }
@@ -344,7 +344,7 @@ t.dispose();
 p.dispose();
 super.dispose();
 }
-p u b lic s t a t i c v o id m a in ( S t r in g [ ] a r g s ) {
+public static void main(String [] args) {
 Frog frog = new Frog();
 print("noKa!");
 frog.dispose();
