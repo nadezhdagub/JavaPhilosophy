@@ -350,3 +350,18 @@ print("noKa!");
 frog.dispose();
 }
 }                                       
+
+c l3 s s S h a re d {
+p r iv a t e i n t r e f c o u n t = 0 ;
+p r iv a t e s t a t i c lo n g c o u n te r = 0 ;
+p r iv a t e f i n a l lo n g id = co u n ter+ + ;
+p u b lic S h a re d () {
+p rin t(" C o 3 A a e M " + t h i s ) ;
+}
+p u b l ic v o id a d d R e f() { re fc o u n t+ + ; }
+p r o t e c t e d v o id d is p o s e ( ) {
+i f ( - - r e f c o u n t == 0)
+p r in t ( " D is p o s in g " + t h i s ) ;
+}
+p u b lic S t r in g t o S t r i n g ( ) { r e t u r n "S h a re d " + i d ; )
+                                          }                      
