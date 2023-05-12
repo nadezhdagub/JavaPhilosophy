@@ -366,19 +366,19 @@ print("Disposing" + this);
 public String toString() { return "Shared" + id;)
                                           }                      
 
-c l a s s Com posin g {
-p r iv a t e S h a re d s h a re d ;
-p r iv a t e s t a t i c lo n g c o u n te r = 0 ;
-p r iv a t e f i n a l lo n g id = cou n ter+ + ;
-p u b l ic C o m p o sin g (S h a re d s h a re d ) {
-p rin t(" C o 3 fla e M " + t h i s ) ;
-t h i s . s h a r e d = s h a re d ;
-t h i s . s h a r e d . a d d R e f( ) ;
+class Composing {
+private Shared shared;
+private static long counter = 0;
+private final long id = counter++;
+public Composing(Shared shared) {
+print("Co3flaeM" + this);
+this.shared = shared;
+this.shared.addRef();
 }
 protected void dispose() {
 print("disposing " + this);
 shared.dispose();
 }
-p u b l ic S t r i n g t o S t r i n g ( ) ( r e t u r n "C om posin g " + i d ; }
+public String toString() ( return "Composing" + id;}
                                             }
     
