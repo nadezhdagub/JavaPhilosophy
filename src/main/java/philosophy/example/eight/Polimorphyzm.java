@@ -383,12 +383,12 @@ public String toString() ( return "Composing" + id;}
                                             }
     
 class ReferenceCounting {
-p u b l ic s t a t i c v o id m a in ( S t r in g [ ] a r g s ) {
-S h a re d s h a re d = new S h a r e d ( ) ;
-C o m p o sin g [] co m p o sin g = { new C o m p o s in g (s h a re d ),
-new C o m p o s in g (s h a re d ), new C o m p o s in g (s h a re d ),
-new C o m p o s in g (s h a re d ), new C o m p o s in g (s h a re d ) ) ;
-fo r(C o m p o s in g c : co m po sin g )
-c . d is p o s e ( ) ;
+public static void main(String[] args) {
+Shared shared = new Shared();
+Composing[] composing = { new Composing(shared),
+new Composing(shared), new Composing(shared),
+new Composing(shared), new Composing(shared));
+for(Composing c : composing)
+c.dispose() ;
 }
 )
