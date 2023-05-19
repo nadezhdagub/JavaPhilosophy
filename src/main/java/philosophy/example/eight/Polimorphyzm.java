@@ -392,3 +392,12 @@ for(Composing c : composing)
 c.dispose() ;
 }
 )
+
+class Glyph {
+void draw() { print("Glyph.draw()"); }
+Glyph() {
+print("Glyph() перед вызовом draw()");
+draw();
+print("Glyph() после вызова draw()");
+}
+    }    
