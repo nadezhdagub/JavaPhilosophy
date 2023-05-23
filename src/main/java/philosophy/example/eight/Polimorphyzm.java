@@ -402,4 +402,13 @@ print("Glyph() после вызова draw()");
 }
     }    
 
-    
+class RoundGlyph extends Glyph {
+private int radius = 1;
+RoundGlyph(int r) {
+radius = r;
+print(''RoundGlyph.RoundGlyph()j radius = " + radius);
+}
+void draw() {
+print("RoundGlyph.draw(), radius = " + radius);
+}
+>   
