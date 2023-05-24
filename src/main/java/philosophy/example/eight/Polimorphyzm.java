@@ -411,4 +411,9 @@ print(''RoundGlyph.RoundGlyph()j radius = " + radius);
 void draw() {
 print("RoundGlyph.draw(), radius = " + radius);
 }
->   
+      }   
+
+class Grain {
+public StringtoString() { return "Grain"; }
+}
+      
