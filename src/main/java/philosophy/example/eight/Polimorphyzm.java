@@ -420,3 +420,7 @@ public StringtoString() { return "Grain"; }
 class Wheat extends Grain {
 public String toString() { return "Wheat"j }
 }
+
+      class Mill {
+Grain process() { return new Grain(); }
+                 }
