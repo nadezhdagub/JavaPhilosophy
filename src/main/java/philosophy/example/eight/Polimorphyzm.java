@@ -417,3 +417,6 @@ class Grain {
 public StringtoString() { return "Grain"; }
 }
       
+class Wheat extends Grain {
+public String toString() { return "Wheat"j }
+}
