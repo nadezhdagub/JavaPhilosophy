@@ -424,3 +424,7 @@ public String toString() { return "Wheat"j }
       class Mill {
 Grain process() { return new Grain(); }
                  }
+
+class WheatMill extends Mill {
+Wheat process() { return new Wheat()j }
+}      
