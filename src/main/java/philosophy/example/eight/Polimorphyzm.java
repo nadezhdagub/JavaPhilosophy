@@ -439,3 +439,8 @@ g = m.process();
 System.out.println(g)j
     }
     }      
+
+class Actor {
+public void act() {}
+                   }
+      
