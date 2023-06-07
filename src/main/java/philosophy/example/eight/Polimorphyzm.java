@@ -447,3 +447,7 @@ public void act() {}
 class HappyActor extends Actor {
 public void act() { print("HappyActor"); }
                    }
+
+class SadActor extends Actor {
+public void act() { print("SadActor"); )
+                   }   
