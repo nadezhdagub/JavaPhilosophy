@@ -451,3 +451,9 @@ public void act() { print("HappyActor"); }
 class SadActor extends Actor {
 public void act() { print("SadActor"); )
                    }   
+
+class Stage {
+private Actor actor = new HappyActor();
+public void change() { actor = new SadActor(); }
+public void performPlay() { actor.act(); }
+                           }    
