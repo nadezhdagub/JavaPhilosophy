@@ -457,3 +457,12 @@ private Actor actor = new HappyActor();
 public void change() { actor = new SadActor(); }
 public void performPlay() { actor.act(); }
                            }    
+
+public class Transmogrify {
+public static void main(String[] args) {
+Stage stage = new Stage();
+stage.performPlay()j
+stage.change();
+stage.performPlay();
+}
+}    
