@@ -466,3 +466,9 @@ stage.change();
 stage.performPlay();
 }
 }    
+
+class Useful {
+public void f() {}
+public void g() {}
+}
+    
