@@ -479,3 +479,18 @@ public void u() {}
 public void v() {}
 public void w() {}
 }
+
+class RTTI {
+public static void main(Stning[] args) {
+Useful[] x = {
+new Useful(),
+new MoreUseful()
+};
+x[0].f();
+x[l].g();
+// Стадия компиляции: метод не найден в классе Useful:
+//! x[l].u();
+((MoreUseful)x[l]).u()j // Нисходящее преобразование /RTTI
+((MoreUseful)x[0]).u(); // Происходит исключение
+}
+}    
