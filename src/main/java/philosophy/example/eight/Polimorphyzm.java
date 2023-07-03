@@ -482,10 +482,7 @@ public void w() {}
 
 class RTTI {
 public static void main(Stning[] args) {
-Useful[] x = {
-new Useful(),
-new MoreUseful()
-};
+Useful[] x = {new Useful(), new MoreUseful()};
 x[0].f();
 x[l].g();
 // Стадия компиляции: метод не найден в классе Useful:
@@ -494,3 +491,5 @@ x[l].g();
 ((MoreUseful)x[0]).u(); // Происходит исключение
 }
 }    
+
+    
