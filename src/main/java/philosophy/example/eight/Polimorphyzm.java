@@ -53,12 +53,12 @@ tune (frenchHorn);
 }
 }  
 
-/*
+
 class Shape {
 public void draw() {}
 public void erase() {} 
 }
-*/
+
 
 class Circle extends Shape {
 public void draw() { print( "Circle.draw()" ); }
