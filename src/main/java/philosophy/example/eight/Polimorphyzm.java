@@ -164,11 +164,11 @@ tune ( i ) ;
 public static void main( String[] args ) {
 // Восходящее преобразование при добавлении в массив:
 Instrument[] orchestra = {
-new Wind() ,
-new Percussion() ,
-new Stringed() ,
-new Brass() ,
-new Woodwind()
+    new Wind() ,
+    new Percussion() ,
+    new Stringed() ,
+    new Brass() ,
+    new Woodwind()
     };
 tuneAll(orchestra ) ;
 }
@@ -200,13 +200,10 @@ public int getSuperField() { return super.field ; }
 class FieldAccess{
 public static void main (String[] args) {
 Super sup = new Sub(); // Upcast
-System.out.println("sup.field= " + sup.field +
-", sup.getField() = " + sup.getField());
+System.out.println("sup.field= " + sup.field +", sup.getField() = " + sup.getField());
 Sub sub = new Sub();
-System.out.println( "sub.field = " +
-sub.field + " , sub.getField() = " +
-sub. getField() +
-" , sub.getSuperField() = " +
+System.out.println( "sub.field = " + sub.field + " , sub.getField() = " +
+sub. getField() + " , sub.getSuperField() = " +
 sub.getSuperField()) ;
 }
 }
