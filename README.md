@@ -3,59 +3,47 @@
 Here will be a code analysis as you read the book "The philosophy of java"
 Each chapter will be in separate directories, and there will also be combined directories by chapters if necessary
 
-Here is the state transition diagram for both Physical Hosts and Virtual Machines, explicitly annotated with the relevant assumptions from the previous modeling framework.
+### Diagram: VM ↔ Broker Interaction Flow
 
 ```mermaid
-stateDiagram-v2
-    direction TB
+flowchart TD
+    %% Nodes
+    Broker[<b>Broker</b><br/>Placement Policy: Random<br/>Feasible Hosts List]
+    VM[<b>VM</b><br/>Demand: 4 Cores, 512 MB RAM, 1 Gbps BW]
+    DC[<b>Data Center</b><br/>10 Hosts: 8 Cores, 2 GB RAM, 10 Gbps BW each]
+    Task[<b>Cloud Service</b><br/>Task: 2 Cores, 10,000M Instructions]
 
-    %% ================= HOST STATES =================
-    [*] --> Host_OFF
-    Host_OFF --> Host_BOOTING: Power On & Init
-    Host_BOOTING --> Host_ACTIVE: System Ready
-    Host_ACTIVE --> Host_SHUTDOWN: Maintenance/Policy
-    Host_SHUTDOWN --> Host_OFF: Power Down
-    Host_ACTIVE --> Host_OFF: Critical Fault
+    %% Interactions with Assumption References
+    Broker -- "1. Request Placement" --> VM
+    VM -- "2. Submit Resource Requirements" --> Broker
+    Broker -- "3. Filter & Rank Feasible Hosts" --> DC
+    DC -- "4. Return Available Hosts" --> Broker
+    Broker -- "5. Random Selection (Uniform)" --> VM
+    VM -- "6. Allocate & Execute" --> Task
+    Task -- "7. Report Completion/Load" --> Broker
 
-    note right of Host_OFF
-        **Linked Assumptions:**
-        • `SD_01`: Fixed hardware capacity defines baseline.
-        • `SM_03`: Linear power model governs energy draw during BOOTING/ACTIVE.
-        • `SM_05`: Deterministic environment assumes no unexpected state jumps.
-    end note
-
-    note right of Host_ACTIVE
-        **Linked Assumptions:**
-        • `SS_02`: Feasibility logic triggers when VMs request resources.
-        • `SS_04`: Sequential placement dependency updates host load state.
-    end note
-
-    %% ================= VM STATES =================
-    [*] --> VM_OFF
-    VM_OFF --> VM_BOOTING: Placement Request
-    VM_BOOTING --> VM_ACTIVE: Resources Allocated
-    VM_ACTIVE --> VM_SHUTDOWN: Task Execution Complete
-    VM_SHUTDOWN --> VM_OFF: Termination
-    VM_ACTIVE --> VM_OFF: Forced Kill
-    VM_BOOTING --> VM_OFF: Allocation Failure
-
-    note right of VM_OFF
-        **Linked Assumptions:**
-        • `SD_02`: Fixed VM demand dictates BOOTING requirements.
-        • `SS_01`: One-to-one mapping enforces single-host binding.
-        • `SD_04`: Random selection policy determines feasible target hosts.
-    end note
-
-    note right of VM_ACTIVE
-        **Linked Assumptions:**
-        • `M_08`: Performance metrics (MCT) are monitored here.
-        • `SS_05`: Execution time depends on allocated CPU cores.
-    end note
+    %% Styling
+    classDef broker fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef vm fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef dc fill:#ff9,stroke:#333,stroke-width:2px;
+    classDef task fill:#9f9,stroke:#333,stroke-width:2px;
+    class Broker broker;
+    class VM vm;
+    class DC dc;
+    class Task task;
 ```
 
-### Key Mapping Notes:
-- **`SD_01` & `SM_03`**: Define the physical baseline and energy consumption profile, directly impacting the `OFF ↔ BOOTING` and `ACTIVE` transitions.
-- **`SS_02` & `SS_04`**: Govern the `Host_ACTIVE` state's capacity to accept new VMs and how sequential placement alters load distribution.
-- **`SD_02` & `SS_01`**: Constrain the `VM_OFF → VM_BOOTING` transition, ensuring static resource demands and single-host binding are respected.
-- **`SD_04`**: Drives the stochastic nature of the `VM_BOOTING` phase, where the broker randomly selects a feasible host from the shrinking pool.
-- **`M_08` & `SS_05`**: Active in the `VM_ACTIVE` state, where task execution time and completion metrics are calculated based on allocated cores and instruction counts.
+### Assumption Mapping for the Diagram
+
+| Diagram Element / Flow | Linked Assumptions | Description |
+|------------------------|-------------------|-------------|
+| **VM Resource Requirements** | `SD_02`, `SD_05` | Fixed demand values (4 cores, 512 MB RAM, 1 Gbps BW) and static allocation behavior. |
+| **Broker Feasibility Filtering** | `SS_02`, `SS_04` | Host suitability logic (CPU ≥ 4, RAM ≥ 512, BW ≥ 1000) and shrinking feasible pool after sequential placements. |
+| **Broker Random Selection** | `SD_04`, `SM_05` | Uniform probability distribution over feasible hosts and deterministic steady-state environment (no failures). |
+| **Data Center Host Capacity** | `SD_01`, `SS_03` | Fixed host specs (8 cores, 2048 MB RAM, 10 Gbps BW) and additive resource consumption model. |
+| **Task Execution & Reporting** | `SS_05`, `SM_04` | Task completion time depends on allocated CPU cores, and all tasks process independently without synchronization. |
+
+### Key Takeaways from the Interaction Model
+- **Binding Constraint:** CPU is the primary bottleneck (`8 cores / 4 cores per VM = max 2 VMs/host`). RAM and bandwidth are non-binding in this configuration.
+- **Stochastic Placement:** The Broker's `SD_04` assumption ensures that while feasibility is deterministic (`SS_02`), the final host assignment is probabilistic, driving the need for load-balancing indicators (`M_04`, `M_05`).
+- **Performance Dependency:** Task completion (`M_08`) is directly tied to how the Broker distributes VMs across hosts, making load dispersion a critical factor for meeting the ≤150s MCT target.
